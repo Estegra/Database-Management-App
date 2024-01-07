@@ -215,5 +215,9 @@
   <ItemGroup>
     <Folder Include="MVVM\Model\" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="INSERT_COMMANDS.sql" />
+    <Content Include="table_creation.sql" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
