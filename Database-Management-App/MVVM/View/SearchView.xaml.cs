@@ -41,7 +41,7 @@ namespace Database_Management_App.MVVM.View
         string connection_str;
         private void GetPassword(string jsonFile)
         {
-            string filePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, jsonFile);
+            string filePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory , jsonFile);
 
             var credentials = JsonConvert.DeserializeObject<Credentials>(File.ReadAllText(filePath));
 
