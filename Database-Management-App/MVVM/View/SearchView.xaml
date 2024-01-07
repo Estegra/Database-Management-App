@@ -1,0 +1,208 @@
+﻿<UserControl x:Class="Database_Management_App.MVVM.View.SearchView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Database_Management_App.MVVM.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="800">
+
+    <UserControl.Resources>
+
+        <Style TargetType="{x:Type DataGridColumnHeader}">
+
+            <Setter Property="Background" Value="#FF2D2D30"/>
+            <Setter Property="Foreground" Value="WhiteSmoke"/>
+            <Setter Property="Height" Value="24"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Padding" Value="0,0,30,0"/>
+                  
+        </Style>
+       
+    </UserControl.Resources>
+    
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+
+        </Grid.ColumnDefinitions>
+
+
+        <!--************Filter Section************-->
+
+        <StackPanel Orientation="Vertical" Grid.ColumnSpan="2"  >
+
+            <TextBlock  Text="Fill in the blanks to filter. If no filter is applied the app will show all of the theses." 
+            Foreground="WhiteSmoke" FontSize="16" FontWeight="Light" Margin="25"/>
+
+
+            <!--FIRST LINE-->
+            <StackPanel Orientation="Horizontal" >
+                <!--Search Box-->
+                <Grid Width="175" Height="25" Margin="25,0,0,0">
+                    <TextBox x:Name="txt_Input" VerticalAlignment="Stretch"  Background="Transparent"
+                        FontSize="16" FontWeight="Light" BorderThickness="0" Margin="5,0,0,0"
+                        TextChanged="txt_Input_TextChanged"  Foreground="WhiteSmoke"/>
+
+                    <Button x:Name="btnClear" Width="30" HorizontalAlignment="Right" Click="btnClear_Click"
+                        Background="Transparent" Foreground="WhiteSmoke" BorderThickness="0" Content="X"
+                            Style="{StaticResource ExitButtonStyle}"/>
+
+                    <TextBlock x:Name="textBlock_Placeholder" Text="Search" 
+                        FontSize="16" FontWeight="Light"
+                        Foreground="WhiteSmoke" VerticalAlignment="Stretch" Margin="8,0,0,0"
+                        Panel.ZIndex="-1" />
+                    <Rectangle Fill="#2e2e2e" Panel.ZIndex="-2" Margin="2,0"/>
+                </Grid>
+
+
+                <!--Type-->
+                <Label  Content="Type" Foreground="WhiteSmoke" Margin="15,0,0,0"
+                        BorderBrush="Transparent" Background="Transparent"  Width="75" 
+                        HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14" />
+                <ComboBox  x:Name="TypeComboBox" Foreground="Black" FontSize="14" 
+                        VerticalAlignment="Center"  Width="160" 
+                        SelectionChanged="TypeComboBox_SelectionChanged" />
+                <!--Language-->
+                <Label  Content="Language" Foreground="WhiteSmoke" Margin="15,0,0,0"
+                        BorderBrush="Transparent" Background="Transparent"  Width="75" 
+                        HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14" />
+                <ComboBox  x:Name="LanguageComboBox" Foreground="Black" FontSize="14" 
+                        VerticalAlignment="Center"  Width="160" Margin="0,0,0,0"
+                        SelectionChanged="LanguageComboBox_SelectionChanged"/>
+
+            </StackPanel>
+
+
+            <!--SECOND LINE-->
+            <StackPanel Orientation="Horizontal" >
+
+                <!--Author-->
+                <Grid Width="175" Height="25" Margin="25,0,0,0">
+                    <TextBox x:Name="txt_Author" VerticalAlignment="Stretch"  Background="Transparent"
+                    FontSize="16" FontWeight="Light" BorderThickness="0" Margin="5,0,0,0"
+                    TextChanged="txt_Author_TextChanged"  Foreground="WhiteSmoke"/>
+
+                    <Button x:Name="btnClearAuthor" Width="30" HorizontalAlignment="Right" Click="btnClearAuthor_Click"
+                    Background="Transparent" Foreground="WhiteSmoke" BorderThickness="0" Content="X"
+                    Style="{StaticResource ExitButtonStyle}"/>
+
+                    <TextBlock x:Name="textBlock_PlaceholderAuthor" Text="Author" 
+                    FontSize="16" FontWeight="Light" 
+                    Foreground="WhiteSmoke" VerticalAlignment="Stretch" Margin="8,0,0,0"
+                    Panel.ZIndex="-1" />
+
+                    <Rectangle Fill="#2e2e2e" Panel.ZIndex="-2" Margin="2,0"/>
+                </Grid>
+
+                <!--UNIVERSITY-->
+                <Label  Content="University" Foreground="WhiteSmoke" Margin="15,0,0,0"
+                    BorderBrush="Transparent" Background="Transparent"  Width="75" 
+                    HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14" />
+                <ComboBox  x:Name="UniversityComboBox" Foreground="Black" FontSize="14" 
+                    VerticalAlignment="Center"  Width="160" 
+                    SelectionChanged="TypeComboBox_SelectionChanged" />
+
+                <!--INSTITUTE-->
+                <Label  Content="Institute" Foreground="WhiteSmoke" Margin="15,0,0,0"
+                    BorderBrush="Transparent" Background="Transparent"  Width="75" 
+                    HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14" />
+                <ComboBox  x:Name="InstituteComboBox" Foreground="Black" FontSize="14" 
+                    VerticalAlignment="Center"  Width="160" />
+
+
+            </StackPanel>
+
+
+            <!--THIRD LINE-->
+            <StackPanel Orientation="Horizontal">
+
+                <Grid Width="175" Height="25" Margin="25,0,0,0">
+                    <TextBox x:Name="txt_Supervisor" VerticalAlignment="Stretch"  Background="Transparent"
+                        FontSize="16" FontWeight="Light" BorderThickness="0" Margin="5,0,0,0"
+                        TextChanged="txt_Supervisor_TextChanged"  Foreground="WhiteSmoke"/>
+
+                    <Button x:Name="btnClearSupervisor" Width="30" HorizontalAlignment="Right" Click="btnClearSupervisor_Click"
+                        Background="Transparent" Foreground="WhiteSmoke" BorderThickness="0" Content="X"
+                         Style="{StaticResource ExitButtonStyle}"/>
+
+                    <TextBlock x:Name="textBlock_PlaceholderSupervisor" Text="Supervisor" 
+                        FontSize="16" FontWeight="Light" 
+                        Foreground="WhiteSmoke" VerticalAlignment="Stretch" Margin="8,0,0,0"
+                        Panel.ZIndex="-1" />
+
+                    <Rectangle Fill="#2e2e2e" Panel.ZIndex="-2" Margin="2,0"/>
+                </Grid>
+
+                <Label  Content="Year" Foreground="WhiteSmoke" Margin="15,0,0,0"
+                    BorderBrush="Transparent" Background="Transparent"  Width="75" 
+                    HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14" />
+                <ComboBox  x:Name="YearComboBox" Foreground="Black" FontSize="14" 
+                    VerticalAlignment="Center"  Width="160" />
+
+                <Label  Content="Topic" Foreground="WhiteSmoke" Margin="15,0,0,0"
+                    BorderBrush="Transparent" Background="Transparent"  Width="75" 
+                    HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14" />
+                <ComboBox  x:Name="TopicComboBox" Foreground="Black" FontSize="14" 
+                    VerticalAlignment="Center"  Width="160" />
+
+            </StackPanel>
+
+            <!--FOURTH LINE-->
+            <StackPanel Orientation="Horizontal">
+
+                <Grid Width="175" Height="25" Margin="25,0,0,0">
+                    <TextBox x:Name="txt_Keyword" VerticalAlignment="Stretch"  Background="Transparent"
+                    FontSize="16" FontWeight="Light" BorderThickness="0" Margin="5,0,0,0"
+                    TextChanged="txt_Keyword_TextChanged"  Foreground="WhiteSmoke"/>
+
+                    <Button x:Name="btnClearKeyword" Width="30" HorizontalAlignment="Right" Click="btnClearKeyword_Click"
+                    Background="Transparent" Foreground="WhiteSmoke" BorderThickness="0" Content="X"
+                    Style="{StaticResource ExitButtonStyle}"/>
+
+                    <TextBlock x:Name="textBlock_PlaceholderKeyword" Text="Keyword" 
+                    FontSize="16" FontWeight="Light" 
+                    Foreground="WhiteSmoke" VerticalAlignment="Stretch" Margin="8,0,0,0"
+                    Panel.ZIndex="-1" />
+                    <Rectangle Fill="#2e2e2e" Panel.ZIndex="-2" Margin="2,1,2,-1"/>
+                </Grid>
+
+
+            </StackPanel>
+
+
+            <StackPanel Orientation="Horizontal" >
+
+                <!--Search Button-->
+                <Button    x:Name="btn_Search" Content="Search" FontSize="16"
+                    Margin="30,12" HorizontalAlignment="Right" Click="btn_Search_Click" 
+                    Width="75" Height="25"/>
+                <Button    x:Name="btn_Reset" Content="Reset" FontSize="16"
+                    Margin="85,12" HorizontalAlignment="Right" Click="btn_Reset_Click"
+                    Width="75" Height="25"/>
+
+            </StackPanel>
+
+            <!--Filter Section END-->
+
+
+
+
+            <DataGrid x:Name="Table" MinHeight="200" IsReadOnly="True" Margin="25,10"                    
+                      Background="#FF1E1E1E" Foreground="WhiteSmoke" BorderBrush="#FF3E3E42"
+                      RowBackground="#FF2D2D30" AlternatingRowBackground="#FF2F2F31"
+                      GridLinesVisibility="None" HorizontalScrollBarVisibility="Auto"
+                      VerticalScrollBarVisibility="Auto" FontSize="12" FontFamily="Segoe UI"
+                      RowHeaderWidth="0" MouseDoubleClick="Table_MouseDoubleClick"
+                
+                />
+            
+        </StackPanel>
+        
+    </Grid>
+</UserControl>

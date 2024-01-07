@@ -1,0 +1,273 @@
+﻿<UserControl x:Class="Database_Management_App.MVVM.View.AddView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Database_Management_App.MVVM.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <!--<ColumnDefinition/>-->
+            <!--<ColumnDefinition/>-->
+            
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <!--<RowDefinition />-->
+        </Grid.RowDefinitions>
+
+        <StackPanel Margin="20" Orientation="Vertical" Grid.ColumnSpan="3">
+
+            <TextBlock Text="This Section Inserts a Thesis into the Database. Simply fill in the blanks." VerticalAlignment="Stretch"  Background="Transparent"
+                FontSize="15" FontWeight="Light" Margin="25,0,0,0"
+                 Foreground="WhiteSmoke"/>
+            
+            
+<!--FIRST LINE-->
+            <StackPanel Orientation="Horizontal">
+
+                <Grid MinWidth="250" Height="25" Margin="25,5,0,5">
+                    <TextBox x:Name="txt_Title" VerticalAlignment="Stretch"  Background="Transparent"
+                        FontSize="16" FontWeight="Light" BorderThickness="0" Margin="5,0,0,0"
+                        TextChanged="txt_Title_TextChanged"  Foreground="WhiteSmoke"/>
+
+                    <Button x:Name="btnClear" Width="30" HorizontalAlignment="Right" Click="btnClear_Click"
+                        Background="Transparent" Foreground="WhiteSmoke" BorderThickness="0" Content="X"
+                        Style="{StaticResource ExitButtonStyle}"/>
+
+                    <TextBlock x:Name="textBlock_PlaceholderTitle" Text="Title" 
+                        FontSize="16" FontWeight="Light" 
+                        Foreground="WhiteSmoke" VerticalAlignment="Stretch" Margin="8,0,0,0"
+                    Panel.ZIndex="-1" />
+                    <Rectangle Fill="#2e2e2e" Panel.ZIndex="-2" Margin="2,-1"/>
+                </Grid>
+
+<!--TYPE COMBOBOX-->
+                <Label  Content="Type" Foreground="WhiteSmoke" Margin="80,0,0,0"
+                        BorderBrush="Transparent" Background="Transparent"  Width="75" 
+                        HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14" />
+                <ComboBox  x:Name="TypeComboBox" Foreground="Black" FontSize="14" 
+                        VerticalAlignment="Center"  Width="200" Margin="-30,0,0,0"
+                />
+
+            </StackPanel>
+            
+<!--SECOND LINE--> 
+            <StackPanel Orientation="Horizontal" >
+
+                <Grid Height="150" Width="750" Margin="25,0,0,0" >
+                    
+                    <TextBox x:Name="txt_Abstract" VerticalAlignment="Stretch"  Background="Transparent"
+                        FontSize="16" FontWeight="Light" BorderThickness="0" Margin="5,0,0,0"
+                        TextChanged="txt_Abstract_TextChanged"  Foreground="WhiteSmoke"
+                        TextWrapping="Wrap" 
+                        VerticalScrollBarVisibility="Auto"
+                        AcceptsReturn="True"     
+                        />
+
+                    <TextBlock x:Name="textBlock_PlaceholderAbstract" Text="Abstract" 
+                        FontSize="16" FontWeight="Light" 
+                        Foreground="WhiteSmoke" VerticalAlignment="Stretch" Margin="8,0,0,0"
+                        Panel.ZIndex="-1" />
+
+                    <Rectangle Fill="#2e2e2e" Panel.ZIndex="-2" Margin="2,-1"/>
+                </Grid>
+
+            </StackPanel >
+            
+<!--THIRD LINE-->
+            <StackPanel Orientation="Horizontal" >
+
+<!--AUTHOR-->
+                <Grid Width="175" Height="25" Margin="25,5,0,0">
+                    <TextBox x:Name="txt_Author" VerticalAlignment="Stretch"  Background="Transparent"
+                            FontSize="16" FontWeight="Light" BorderThickness="0" Margin="5,0,0,0"
+                            TextChanged="txt_Author_TextChanged"  Foreground="WhiteSmoke"/>
+
+                    <Button x:Name="btnClearAuthor" Width="30" HorizontalAlignment="Right" Click="btnClearAuthor_Click"
+                            Background="Transparent" Foreground="WhiteSmoke" BorderThickness="0" Content="X"
+                            Style="{StaticResource ExitButtonStyle}"/>
+
+                    <TextBlock x:Name="textBlock_PlaceholderAuthor" Text="Author" 
+                            FontSize="16" FontWeight="Light" 
+                            Foreground="WhiteSmoke" VerticalAlignment="Stretch" Margin="8,0,0,0"
+                            Panel.ZIndex="-1" />
+                    <Rectangle Fill="#2e2e2e" Panel.ZIndex="-2" Margin="2,-1"/>
+                </Grid>
+
+<!--UNIVERSITY-->                
+                <Grid Width="175" Height="25" Margin="12,5,0,0">
+                    <TextBox x:Name="txt_University" VerticalAlignment="Stretch"  Background="Transparent"
+                        FontSize="16" FontWeight="Light" BorderThickness="0" Margin="5,0,0,0"
+                        TextChanged="txt_University_TextChanged"  Foreground="WhiteSmoke"/>
+
+                    <Button x:Name="btnClearUniversity" Width="30" HorizontalAlignment="Right" Click="btnClearUniversity_Click"
+                        Background="Transparent" Foreground="WhiteSmoke" BorderThickness="0" Content="X"
+                        Style="{StaticResource ExitButtonStyle}"/>
+
+                    <TextBlock x:Name="textBlock_PlaceholderUniversity" Text="University" 
+                        FontSize="16" FontWeight="Light" 
+                        Foreground="WhiteSmoke" VerticalAlignment="Stretch" Margin="8,0,0,0"
+                        Panel.ZIndex="-1" />
+                    <Rectangle Fill="#2e2e2e" Panel.ZIndex="-2" Margin="2,-1"/>
+                </Grid>
+                
+<!--INSTITUTE-->                
+                <Grid Width="175" Height="25" Margin="12,5,0,0">
+                    <TextBox x:Name="txt_Institute" VerticalAlignment="Stretch"  Background="Transparent"
+                        FontSize="16" FontWeight="Light" BorderThickness="0" Margin="5,0,0,0"
+                        TextChanged="txt_Institute_TextChanged"  Foreground="WhiteSmoke"/>
+
+                    <Button x:Name="btnClearInstitute" Width="30" HorizontalAlignment="Right" Click="btnClearInstitute_Click"
+                        Background="Transparent" Foreground="WhiteSmoke" BorderThickness="0" Content="X"
+                        Style="{StaticResource ExitButtonStyle}"/>
+
+                    <TextBlock x:Name="textBlock_PlaceholderInstitute" Text="Institute" 
+                        FontSize="16" FontWeight="Light" 
+                        Foreground="WhiteSmoke" VerticalAlignment="Stretch" Margin="8,0,0,0"
+                        Panel.ZIndex="-1" />
+                    <Rectangle Fill="#2e2e2e" Panel.ZIndex="-2" Margin="2,-1"/>
+                </Grid>
+
+
+            </StackPanel>
+
+
+            <StackPanel Orientation="Horizontal">
+
+<!--SUPERVISOR-->
+                <Grid Width="175" Height="25" Margin="25,0,0,0">
+                    <TextBox x:Name="txt_Supervisor" VerticalAlignment="Stretch"  Background="Transparent"
+                            FontSize="16" FontWeight="Light" BorderThickness="0" Margin="5,0,0,0"
+                            TextChanged="txt_Supervisor_TextChanged"  Foreground="WhiteSmoke"/>
+
+                    <Button x:Name="btnClearSupervisor" Width="30" HorizontalAlignment="Right" Click="btnClearSupervisor_Click"
+                            Background="Transparent" Foreground="WhiteSmoke" BorderThickness="0" Content="X"
+                            Style="{StaticResource ExitButtonStyle}"/>
+
+                    <TextBlock x:Name="textBlock_PlaceholderSupervisor" Text="Supervisor" 
+                            FontSize="16" FontWeight="Light" 
+                            Foreground="WhiteSmoke" VerticalAlignment="Stretch" Margin="8,0,0,0"
+                            Panel.ZIndex="-1" />
+                    <Rectangle Fill="#2e2e2e" Panel.ZIndex="-2" Margin="2,-1"/>
+                </Grid>
+
+                <!--CO-SUPERVISOR-->
+                <Grid Width="175" Height="25" Margin="12,0,0,0">
+                    <TextBox x:Name="txt_CoSupervisor" VerticalAlignment="Stretch"  Background="Transparent"
+                    FontSize="16" FontWeight="Light" BorderThickness="0" Margin="5,0,0,0"
+                    TextChanged="txt_CoSupervisor_TextChanged"  Foreground="WhiteSmoke"/>
+
+                    <Button x:Name="btnClearCosSupervisor" Width="30" HorizontalAlignment="Right" Click="btnClearCoSupervisor_Click"
+                    Background="Transparent" Foreground="WhiteSmoke" BorderThickness="0" Content="X"
+                    Style="{StaticResource ExitButtonStyle}"/>
+
+                    <TextBlock x:Name="textBlock_PlaceholderCoSupervisor" Text="Co-Supervisor" 
+                    FontSize="16" FontWeight="Light" 
+                    Foreground="WhiteSmoke" VerticalAlignment="Stretch" Margin="8,0,0,0"
+                    Panel.ZIndex="-1" />
+                    <Rectangle Fill="#2e2e2e" Panel.ZIndex="-2" Margin="2,-1"/>
+                </Grid>
+                
+                <!--NUMBER OF PAGES-->
+                <Grid Width="175" Height="25" Margin="12,0,0,0">
+                    <TextBox x:Name="txt_NoP" VerticalAlignment="Stretch"  Background="Transparent"
+                        FontSize="16" FontWeight="Light" BorderThickness="0" Margin="5,0,0,0"
+                        TextChanged="txt_NoP_TextChanged"  Foreground="WhiteSmoke"/>
+
+                    <Button x:Name="btnClearNoP" Width="30" HorizontalAlignment="Right" Click="btnClearNoP_Click"
+                        Background="Transparent" Foreground="WhiteSmoke" BorderThickness="0" Content="X"
+                        Style="{StaticResource ExitButtonStyle}"/>
+
+                    <TextBlock x:Name="textBlock_PlaceholderNoP" Text="Number of Pages" 
+                        FontSize="16" FontWeight="Light" 
+                        Foreground="WhiteSmoke" VerticalAlignment="Stretch" Margin="8,0,0,0"
+                        Panel.ZIndex="-1" />
+                    <Rectangle Fill="#2e2e2e" Panel.ZIndex="-2" Margin="2,-1"/>
+                </Grid>
+
+
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+
+
+
+ <!--KEYWORD-->
+                <Grid Width="175" Height="25" Margin="25,0,0,0">
+                    <TextBox x:Name="txt_Keyword" VerticalAlignment="Stretch"  Background="Transparent"
+                    FontSize="16" FontWeight="Light" BorderThickness="0" Margin="5,0,0,0"
+                    TextChanged="txt_Keyword_TextChanged"  Foreground="WhiteSmoke"/>
+
+                    <Button x:Name="btnClearKeyword" Width="30" HorizontalAlignment="Right" Click="btnClearKeyword_Click"
+                    Background="Transparent" Foreground="WhiteSmoke" BorderThickness="0" Content="X"
+                    Style="{StaticResource ExitButtonStyle}"/>
+
+                    <TextBlock x:Name="textBlock_PlaceholderKeyword" Text="Keyword" 
+                    FontSize="16" FontWeight="Light" 
+                    Foreground="WhiteSmoke" VerticalAlignment="Stretch" Margin="8,0,0,0"
+                    Panel.ZIndex="-1" />
+                    <Rectangle Fill="#2e2e2e" Panel.ZIndex="-2" Margin="2,-1"/>
+                </Grid>
+<!--TOPIC-->
+                <Grid Width="175" Height="25" Margin="12,0,0,0">
+                    <TextBox x:Name="txt_Topic" VerticalAlignment="Stretch"  Background="Transparent"
+                        FontSize="16" FontWeight="Light" BorderThickness="0" Margin="5,0,0,0"
+                        TextChanged="txt_Topic_TextChanged"  Foreground="WhiteSmoke"/>
+
+                    <Button x:Name="btnClearTopic" Width="30" HorizontalAlignment="Right" Click="btnClearTopic_Click"
+                        Background="Transparent" Foreground="WhiteSmoke" BorderThickness="0" Content="X"
+                        Style="{StaticResource ExitButtonStyle}"/>
+
+                    <TextBlock x:Name="textBlock_PlaceholderTopic" Text="Topic" 
+                        FontSize="16" FontWeight="Light" 
+                        Foreground="WhiteSmoke" VerticalAlignment="Stretch" Margin="8,0,0,0"
+                        Panel.ZIndex="-1" />
+                    <Rectangle Fill="#2e2e2e" Panel.ZIndex="-2" Margin="2,-1"/>
+                </Grid>
+                
+
+                
+                
+
+
+            </StackPanel>
+            <!--LANGUAGE-->
+            <StackPanel Orientation="Horizontal">
+                <Label  Content="Language" Foreground="WhiteSmoke" Margin="25,0,0,0"
+                    BorderBrush="Transparent" Background="Transparent"  Width="75" 
+                    HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14" />
+                <ComboBox  x:Name="LanguageComboBox" Foreground="Black" FontSize="14" 
+                    VerticalAlignment="Center"  Width="100" Margin="0,0,0,0"
+                />
+
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,25,0,0">
+
+                <Button    x:Name="btn_Submit" Content="Submit" FontSize="16"
+                    Margin="30,12" HorizontalAlignment="Right" Click="btn_Submit_Click"
+                    Width="75" Height="25"/>
+                <Button    x:Name="btn_Reset" Content="Reset" FontSize="16"
+                    Margin="85,12" HorizontalAlignment="Right" Click="btn_Reset_Click"
+                    Width="75" Height="25"/>
+
+
+            </StackPanel>
+
+
+
+        </StackPanel>
+
+        
+
+
+
+
+
+
+
+    </Grid>
+</UserControl>
